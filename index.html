@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tijdelijk offline</title>
+<style>
+:root{--bg:#f6f7f9;--card:#ffffff;--text:#1d2330;--muted:#5b6475;--accent:#c2410c;--border:#e3e6eb}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--card:#1b2029;--text:#e8ebf0;--muted:#a3abb8;--accent:#fb923c;--border:#2a303b}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px 16px}
+main{max-width:560px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px 28px}
+.badge{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);border:1px solid currentColor;border-radius:999px;padding:2px 10px;margin-bottom:16px}
+h1{font-size:26px;line-height:1.25;margin:0 0 16px;overflow-wrap:anywhere}
+p{margin:0 0 14px}
+.muted{color:var(--muted);font-size:14px}
+hr{border:0;border-top:1px solid var(--border);margin:24px 0 18px}
+</style>
+</head>
+<body>
+<main>
+  <span class="badge">Beveiligingsupdate</span>
+  <h1 id="kop">Deze website is tijdelijk offline</h1>
+  <p>Er is een ernstig beveiligingslek ontdekt in PHP, de software waarop deze website en een groot deel van het internet draait. Uit voorzorg hebben we de website tijdelijk uit de lucht gehaald.</p>
+  <p>Zodra de beveiligingsupdate is geïnstalleerd, is de website weer bereikbaar. Veel andere organisaties, waaronder overheidswebsites, nemen vandaag dezelfde maatregel.</p>
+  <p>Excuses voor het ongemak en bedankt voor je begrip.</p>
+  <hr>
+  <p class="muted" lang="en">This website is temporarily offline as a precaution because of a critical security vulnerability in PHP. It will be back as soon as the security update has been installed.</p>
+</main>
+<script>
+try {
+  var s = new URLSearchParams(location.search).get('site');
+  if (s && /^[a-z0-9.-]{3,60}$/i.test(s)) {
+    document.getElementById('kop').textContent = s + ' is tijdelijk offline';
+    document.title = s + ' is tijdelijk offline';
+  }
+} catch (e) {}
+</script>
+</body>
+</html>
